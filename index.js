@@ -9,6 +9,7 @@ const config = require('./utils/config')
 const usersRouter = require('./controllers/users')
 const loginRouter = require('./controllers/login')
 const textRouter = require('./controllers/text')
+const truthOrDareRouter = require('./controllers/truthOrDares')
 
 mongoose
   .connect(config.mongoUrl, { useNewUrlParser: true })
@@ -26,6 +27,7 @@ app.use(bodyParser.json())
 app.use(middleware.logger)
 
 app.use('/api/users', usersRouter)
+app.use('/api/truthOrDare', truthOrDareRouter)
 app.use('/api/login', loginRouter)
 app.use('/api/text', textRouter)
 
