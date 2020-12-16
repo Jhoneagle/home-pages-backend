@@ -4,9 +4,9 @@ let data = null
 const address = 'http://johneagle.omat.fi/external/api/json/text.json'
 
 request(address, function (error, response, body) {
-  if (!error && response.statusCode == 200) {
-     const trimmed = body.trim()
-     data = JSON.parse(trimmed)
+  if (!error && response.statusCode === 200) {
+    const trimmed = body.trim()
+    data = JSON.parse(trimmed)
   }
 })
 

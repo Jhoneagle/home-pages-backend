@@ -1,5 +1,4 @@
-﻿const bcrypt = require('bcryptjs')
-const truthOrDareRouter = require('express').Router()
+﻿const truthOrDareRouter = require('express').Router()
 const TruthOrDare = require('../models/truthOrDare')
 
 truthOrDareRouter.get('/', async (request, response) => {
@@ -10,7 +9,7 @@ truthOrDareRouter.get('/', async (request, response) => {
 truthOrDareRouter.post('/', async (request, response) => {
   try {
     const body = request.body
-    
+
     if (body.content === undefined) {
       return response.status(400).json({ error: 'content missing' })
     }
@@ -20,12 +19,12 @@ truthOrDareRouter.post('/', async (request, response) => {
     }
 
     const input = new TruthOrDare({
-			content: body.content,
-			type: body.type
-		})
+      content: body.content,
+      type: body.type
+    })
 
     const result = await input.save()
-    
+
     const formated = TruthOrDare.format(result)
     response.status(201).json(formated)
   } catch(exception) {

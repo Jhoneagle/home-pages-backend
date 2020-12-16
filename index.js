@@ -12,7 +12,7 @@ const textRouter = require('./controllers/text')
 const truthOrDareRouter = require('./controllers/truthOrDares')
 
 mongoose
-  .connect(config.mongoUrl, { useNewUrlParser: true })
+  .connect(config.mongoUrl, { useNewUrlParser: true, useUnifiedTopology: true })
   .then( () => {
     console.log('connected to database', config.mongoUrl)
   })
